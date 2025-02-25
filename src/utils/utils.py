@@ -6,13 +6,25 @@
 import json
 from enum import Enum
 
+
+
 class LibraryType(Enum):
     '''
     library type
     for examples, Type LOCAL_FILE means file in local.
     '''
+    NONE_TYPE = 0
     LOCAL_FILE = 1
     WEB_FILE = 2
+
+    @classmethod
+    def get_type(cls,name):
+        if name == 'local file':
+            return cls.LOCAL_FILE
+        elif name == 'web file':
+            return cls.WEB_FILE
+        else:
+            return cls.NONE_TYPE
 
 def load_json_from_file(filename:str) -> [bool, dict|str]:
     '''

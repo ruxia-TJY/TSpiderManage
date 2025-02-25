@@ -12,10 +12,7 @@ class LibraryConfig:
     def __init__(self,name,path,type):
         self.name = name
         self.path = path
-        if type == 'local file':
-            self.type = LibraryType.LOCAL_FILE
-        elif type == 'web file':
-            self.type = LibraryType.WEB_FILE
+        self.type = LibraryType.get_type(type)
 
 class Config:
     '''
